@@ -1,13 +1,29 @@
-const getRandomInRange = function (min, max) {
+
+// Возвращает целое число
+
+const getRandomWholeNumber = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
+  if (min === max || min > max) {
+    return 'Ошибка'
+  }
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-getRandomInRange(1, 100)
+getRandomWholeNumber(1.2, 9.7);
 
-const getRandom = function() {
-  Math.random();
+
+// Возвращает число с плавающей точкой
+
+const getRandomFractionalNumber = (min, max, limit) => {
+  if (min === max || min > max) {
+    return 'Ошибка'
+  }
+  let number = Math.random () * (max - min) + min;
+  return +number.toFixed(limit);
+
 }
 
-getRandom()
+getRandomFractionalNumber (1.2, 12.88, 4);
+
+
