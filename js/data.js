@@ -83,4 +83,4 @@ const createAd = () => {
 
 const generateAd = new Array(countAd).fill(null).map(() => createAd());
 
-export{generateAd};
+export{createAd, generateAd};
