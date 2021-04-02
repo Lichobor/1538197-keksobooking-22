@@ -1,41 +1,27 @@
-// Функции
+const showMessage = (message) => {
+  const containerMessage = document.createElement('div');
+  containerMessage.style.zIndex = 100;
+  containerMessage.style.position = 'fixed';
+  containerMessage.style.bottom = 0;
+  containerMessage.style.right = 0;
+  containerMessage.style.color = 'red';
+  containerMessage.style.fontFamily = 'Roboto';
+  containerMessage.style.fontWeight = 'bold';
+  containerMessage.style.fontSize = '20px';
+  containerMessage.style.padding = '20px';
+  containerMessage.style.cursor = 'default';
 
-// Возвращает целое число
+  containerMessage.textContent = message;
 
-const getRandomNumber = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  if (min < 0 || max < 0) {
-    return 'Ошибка! Введите положительное число';
-  }
-  if (min === max || min > max) {
-    return 'Ошибка! min должно быть больше, чем max';
-  }
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+  document.body.appendChild(containerMessage);
 
-// Возвращает число с плавающей точкой
+  setTimeout(() => {
+    containerMessage.remove();
+  }, 3000);
+}
 
-const getRandomPoint = (min, max, limit) => {
-  if (min < 0 || max < 0) {
-    return 'Ошибка! Введите положительное число';
-  }
-  if (min === max || min > max) {
-    return 'Ошибка! min должно быть больше, чем max';
-  }
-  return +(Math.random () * (max - min) + min).toFixed(limit);
-};
+const isUseEsc = (evt) => {
+  return evt.key === ('Escape' || 'Esc');
+}
 
-// Выбирает значение из списка
-
-const getRandomValue = (value) => {
-  return value[getRandomNumber(0, value.length - 1)];
-};
-
-// Возвращает часть массива
-
-const getRandomArray = (array) => {
-  return array.slice(getRandomNumber(0, array.length));
-};
-
-export {getRandomNumber, getRandomPoint, getRandomValue, getRandomArray};
+export {showMessage, isUseEsc};
